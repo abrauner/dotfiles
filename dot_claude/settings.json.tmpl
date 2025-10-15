@@ -1,10 +1,10 @@
-{{ if .isWorkLaptop }}
+{{- if .isWorkLaptop -}}
 {
   "apiKeyHelper": "ztoken token -n zllm",
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "CLAUDE_CODE_API_KEY_HELPER_TTL_MS": 3600000,
-    "ANTHROPIC_BASE_URL": "{{ onepasswordRead "op://work/dotfiles/ANTHROPIC_BASE_URL" }}" ,
+    "CLAUDE_CODE_API_KEY_HELPER_TTL_MS": "3600000",
+    "ANTHROPIC_BASE_URL": "{{ onepasswordRead "op://work/dotfiles/ANTHROPIC_BASE_URL" }}",
     "ANTHROPIC_MODEL": "bedrock/anthropic.claude-sonnet-4-20250514-v1:0",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "bedrock/anthropic.claude-3-haiku-20240307-v1:0"
   },
