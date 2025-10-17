@@ -1,0 +1,86 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please fill out the information below.
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: A clear description of the feature you'd like to see
+      placeholder: Describe the feature...
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Describe your use case and why this feature would be helpful
+      placeholder: |
+        What problem does this solve?
+        How would you use this feature?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How do you think this should be implemented?
+      placeholder: Describe your proposed solution...
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions?
+      placeholder: Describe alternatives you've considered...
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: What type of feature is this?
+      options:
+        - New application configuration
+        - Environment detection improvement
+        - 1Password integration enhancement
+        - Security improvement
+        - Documentation improvement
+        - Development workflow improvement
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this feature would be to implement?
+      options:
+        - Simple (minor template changes)
+        - Medium (new template logic or files)
+        - Complex (major architecture changes)
+        - Not sure
+
+  - type: checkboxes
+    id: requirements
+    attributes:
+      label: Requirements
+      options:
+        - label: This feature maintains security principles (no secrets in Git)
+        - label: This feature is compatible with work/personal separation
+        - label: I'm willing to help implement this feature
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context about the feature request
+      placeholder: Add any other context here...

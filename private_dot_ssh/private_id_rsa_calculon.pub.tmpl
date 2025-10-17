@@ -1,0 +1,3 @@
+{{- if (and .isPrivateLaptop (not .isContainerDev)) -}}
+{{ onepasswordRead "op://private/id_rsa_calculon/public_key" }}
+{{ end }}

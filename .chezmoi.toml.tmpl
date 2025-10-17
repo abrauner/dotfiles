@@ -1,0 +1,45 @@
+{{- $codespaces:= env "CODESPACES" | not | not -}}
+{{- $vscode:= env "TERM_PROGRAM" | eq "vscode" -}}
+{{- $remoteContainer:= env "REMOTE_CONTAINERS" | not | not -}}
+
+encryption = "age"
+[age]
+    identity  = "{{ .chezmoi.homeDir }}/.agekey"
+    recipient = "age18klzapy48yynhqx60rmtmc3hv3m5uy978jpd8rxmh340axyt4y2sd2m9sn"
+
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+[data]
+    isCodespaces = {{ $codespaces }}
+    isVscode = {{ $vscode }}
+    isContainerDev = {{ or $codespaces $vscode $remoteContainer }}
+{{- if not (or $codespaces $vscode $remoteContainer) }}
+    {{ $hostname_prefix := onepasswordRead "op://work/dotfiles/hostname-prefix" }}
+    isWorkLaptop = {{ contains $hostname_prefix .chezmoi.hostname }}
+    isPrivateLaptop = {{ not (contains $hostname_prefix .chezmoi.hostname) }}
+{{- else }}
+    isPrivateLaptop = false
+    isWorkLaptop = false
+{{ end }}
+
+[add]
+    secrets = "error"
+
+[git]
+    autoCommit = true
+    autoPush = false
+
+[edit]
+    command = "mcedit"
+    apply = true
+
+{{- if not (or $codespaces $vscode $remoteContainer) }}
+[[textconv]]
+    pattern = "**/*.plist"
+    command = "plutil"
+    args = ["-convert", "xml1", "-o", "-", "-"]
+{{ end }}
+
+[hooks.edit-config-template.post]
+    command = "chezmoi"
+    args = ["init"]

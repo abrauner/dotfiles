@@ -1,0 +1,3 @@
+{{- if (and .isWorkLaptop (not .isContainerDev)) -}}
+{"default_options": ["--auth-type=zign"]}
+{{ end }}

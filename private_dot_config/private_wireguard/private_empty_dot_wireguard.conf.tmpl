@@ -1,0 +1,14 @@
+{{- if not .isContainerDev -}}
+[Interface]
+Address = {{- onepasswordRead "op://private/dotfiles/wireguard_ip_list" }}
+PrivateKey = {{- onepasswordRead "op://private/dotfiles/wireguard_private_key" }}
+DNS = 1.1.1.1,1.0.0.1,2606:4700:4700::1111,2606:4700:4700::1001
+MTU = 1300
+
+[Peer]
+PublicKey = {{ onepasswordRead "op://private/dotfiles/wireguard_server_public_key" }}
+PresharedKey = {{ onepasswordRead "op://private/dotfiles/wireguard_server_psk" }}
+AllowedIPs = 0.0.0.0/0,::/0
+Endpoint = {{- onepasswordRead "op://private/dotfiles/wireguard_server_endpoint" }}
+PersistentKeepalive = 15
+{{- end -}}

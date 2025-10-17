@@ -1,0 +1,65 @@
+*~
+.DS_Store
+
+# eclipse conf file
+.settings
+.classpath
+.project
+.manager
+.scala_dependencies
+.cache
+
+# building
+target
+build
+null
+tmp
+temp
+dist
+test-output
+build.log
+runtime
+**/WEB-INF/classes/
+**/WEB-INF/lib/
+**/overlays/
+*.versionsBackup
+*.pyc
+
+# gradle
+.gradle
+gradle
+
+# idea conf files
+.idea
+*.iml
+*.ipr
+*.iws
+
+local.properties
+sonar-project.properties
+
+
+# External tool builders
+.externalToolBuilders/
+
+# Database Dumps
+.database_dumps/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+*.pre-cvfix
+
+#Local Grunt installation
+Gruntfile.js
+node_modules
+npm-debug.log
+
+*-personal.properties
+
+*.local
+*.dotenv
+.env*
+!.env.template
+
+bazel-*

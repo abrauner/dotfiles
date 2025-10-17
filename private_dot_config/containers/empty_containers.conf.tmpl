@@ -1,0 +1,4 @@
+{{- if (and .isPrivateLaptop (not .isContainerDev)) -}}
+#[machine]
+#rosetta=false
+{{ end }}

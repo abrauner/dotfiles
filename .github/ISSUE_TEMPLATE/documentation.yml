@@ -1,0 +1,66 @@
+name: Documentation Issue
+description: Report an issue with documentation
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation!
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation issue is this?
+      options:
+        - README.md
+        - CONTRIBUTING.md
+        - Code comments
+        - Examples
+        - Installation instructions
+        - Usage instructions
+        - 1Password setup guide
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Issue Description
+      description: What's wrong with the current documentation?
+      placeholder: |
+        - Unclear instructions
+        - Missing information
+        - Outdated content
+        - Incorrect examples
+        - Typos or formatting issues
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Where is this documentation issue located?
+      placeholder: |
+        File: README.md
+        Section: Installation > Prerequisites
+        Line: 145-150
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-improvement
+    attributes:
+      label: Suggested Improvement
+      description: How should this be improved?
+      placeholder: Describe what the documentation should say instead...
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional context about this documentation issue
+      placeholder: Add any other context here...

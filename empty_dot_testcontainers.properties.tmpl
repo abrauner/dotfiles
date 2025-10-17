@@ -1,0 +1,6 @@
+{{ if .isPrivateLaptop }}
+docker.client.strategy=org.testcontainers.dockerclient.EnvironmentAndSystemPropertyClientProviderStrategy
+docker.host=unix://{{.chezmoi.homeDir}}/.colima/default/docker.sock
+docker.context=colima
+docker.socket.override=/var/run/docker.sock
+{{ end }}

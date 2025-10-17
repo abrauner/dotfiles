@@ -1,0 +1,3 @@
+{{- if (and .isPrivateLaptop (not .isContainerDev)) -}}
+{{ onepasswordRead "op://private/id_github/id_github" }}
+{{- end }}

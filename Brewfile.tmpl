@@ -1,0 +1,130 @@
+{{ if not .isContainerDev }}
+{{ if eq .chezmoi.os "darwin" }}
+brew "adr-tools"
+brew "age"
+brew "bash-completion"
+brew "chezmoi"
+brew "colima"
+brew "coreutils"
+brew "d2"
+brew "docker-compose"
+brew "docker"
+brew "exiftool"
+brew "ffmpeg"
+brew "gh"
+brew "git-filter-repo"
+brew "git"
+brew "github-keygen"
+brew "gitup"
+brew "gnupg"
+brew "gocloc"
+brew "graphviz"
+brew "guile"
+brew "httpie"
+brew "imagemagick"
+brew "jabba"
+brew "jenv"
+brew "jpeg"
+brew "jq"
+brew "jupyterlab"
+brew "launchctl-completion"
+brew "libexif"
+brew "libffi"
+brew "libgsf"
+brew "libimagequant"
+brew "libmatio"
+brew "libpq"
+brew "librsvg"
+brew "libspng"
+brew "mas"
+brew "maven"
+brew "midnight-commander"
+brew "mob"
+brew "mozjpeg"
+brew "ncdu"
+brew "nmap"
+brew "node"
+brew "nvm"
+brew "openslide"
+brew "openssl"
+brew "pinentry-mac"
+brew "pip-completion"
+brew "pipenv"
+brew "pipx"
+brew "plantuml"
+brew "poetry"
+brew "poppler"
+brew "pyenv"
+brew "reviewdog/tap/reviewdog"
+brew "vale"
+brew "wget"
+brew "zsh-completions"
+brew "zsh"
+cask "1password-cli"
+cask "1password"
+cask "adobe-acrobat-reader"
+cask "alfred"
+cask "claude-code"
+cask "disk-inventory-x"
+cask "firefox"
+cask "iterm2"
+cask "logitech-presentation"
+cask "obsidian"
+cask "pgadmin4"
+cask "podman-desktop"
+cask "postman"
+cask "qmk-toolbox"
+cask "rapidapi"
+cask "rectangle"
+cask "spotify"
+cask "sublime-text"
+cask "visual-studio-code"
+mas "Amphetamine", id: 937984704
+tap "buo/cask-upgrade"
+tap "reviewdog/tap"
+
+{{ if .isPrivateLaptop }}brew "act"{{- end}}
+{{ if .isPrivateLaptop }}brew "angular-cli"{{ end }}
+{{ if .isPrivateLaptop }}brew "ansible"{{ end }}
+{{ if .isPrivateLaptop }}brew "bazelisk"{{- end}}
+{{ if .isPrivateLaptop }}brew "delve"{{- end}}
+{{ if .isPrivateLaptop }}brew "esptool" {{- end}}
+{{ if .isPrivateLaptop }}brew "gatsby-cli"{{ end }}
+{{ if .isPrivateLaptop }}brew "gobject-introspection"{{ end }}
+{{ if .isPrivateLaptop }}brew "golang-migrate"{{ end }}
+{{ if .isPrivateLaptop }}brew "golangci-lint"{{ end }}
+{{ if .isPrivateLaptop }}brew "helm"{{ end }}
+{{ if .isPrivateLaptop }}brew "opentofu"{{ end }}
+{{ if .isPrivateLaptop }}brew "platformio"{{ end }}
+{{ if .isPrivateLaptop }}brew "postgresql"{{ end }}
+{{ if .isPrivateLaptop }}brew "timewarrior"{{ end }}
+{{ if .isPrivateLaptop }}cask "arc"{{ end }}
+{{ if .isPrivateLaptop }}cask "calibre"{{ end }}
+{{ if .isPrivateLaptop }}cask "freecad"{{ end }}
+{{ if .isPrivateLaptop }}cask "element"{{ end }}
+{{ if .isPrivateLaptop }}cask "gcloud-cli"{{ end }}
+{{ if .isPrivateLaptop }}cask "grammarly-desktop"{{ end }}
+{{ if .isPrivateLaptop }}cask "inkscape"{{ end }}
+{{ if .isPrivateLaptop }}cask "librecad"{{ end }}
+{{ if .isPrivateLaptop }}cask "macfuse"{{ end }}
+{{ if .isPrivateLaptop }}cask "notion"{{ end }}
+{{ if .isPrivateLaptop }}cask "obs"{{ end }}
+{{ if .isPrivateLaptop }}cask "openscad"{{ end }}
+{{ if .isPrivateLaptop }}cask "signal"{{ end }}
+{{ if .isPrivateLaptop }}cask "veracrypt"{{ end }}
+{{ if .isPrivateLaptop }}mas "AusweisApp2", id: 948660805{{ end }}
+{{ if .isPrivateLaptop }}mas "Kindle", id: 302584613{{ end }}
+{{ if .isPrivateLaptop }}mas "Slack", id: 803453959{{ end }}
+{{ if .isPrivateLaptop }}mas "Whatsapp", id: 310633997{{ end }}
+{{ if .isPrivateLaptop }}mas "WireGuard", id: 1451685025{{ end }}
+{{ if .isPrivateLaptop }}mas "Tacx", id: 892366151{{ end }}
+
+{{ if .isWorkLaptop }}brew "aider"{{ end }}
+{{ if .isWorkLaptop }}brew "{{ onepasswordRead "op://work/dotfiles/work-aws-cli" }}" {{ end }}
+{{ if .isWorkLaptop }}brew "awscli"{{ end }}
+{{ if .isWorkLaptop }}cask "intellij-idea"{{ end }}
+{{ if .isWorkLaptop }}tap "base-infrastructure/homebrew-taps", "{{onepasswordRead "op://work/dotfiles/base-infra-taps-url" }}", force_auto_update: true {{ end }}
+
+
+{{ end }}
+{{ end }}

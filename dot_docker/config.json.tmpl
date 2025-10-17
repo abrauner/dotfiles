@@ -1,0 +1,14 @@
+{{- if and .isWorkLaptop (not .isContainerDev) -}}
+{
+  "auths": {},
+  "credHelpers": {
+    {{onepasswordRead "op://work/dotfiles/docker-credHelpers"}}
+  },
+  "currentContext": "colima"
+}
+{{- else if (and .isPrivateLaptop (not .isContainerDev)) -}}
+{
+    "auths": {},
+    "currentContext": "colima"
+}
+{{ end }}

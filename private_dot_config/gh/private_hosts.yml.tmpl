@@ -1,0 +1,19 @@
+{{- if (and .isWorkLaptop (not .isContainerDev)) -}}
+{{onepasswordRead "op://work/dotfiles/github-enterprise-host"}}:
+    git_protocol: https
+    users:
+        {{onepasswordRead "op://work/dotfiles/network-id"}}:
+    user: {{onepasswordRead "op://work/dotfiles/network-id"}}
+github.com:
+    git_protocol: https
+    users:
+        {{onepasswordRead "op://work/dotfiles/Github/cloud-account"}}:
+    user: {{onepasswordRead "op://work/dotfiles/Github/cloud-account"}}
+{{ else if and .isPrivateLaptop (not .isContainerDev) }}
+github.com:
+    git_protocol: https
+    users:
+        {{ onepasswordRead "op://private/dotfiles/github-login" }}:
+    user: {{ onepasswordRead "op://private/dotfiles/github-login" }}
+{{ end }}
+

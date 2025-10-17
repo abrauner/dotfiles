@@ -1,0 +1,6 @@
+{{- if (and (.isWorkLaptop) (not (.isContainerDev))) -}}
+[user]
+    name = {{ onepasswordRead "op://work/dotfiles/name" }}
+    email = {{ onepasswordRead "op://work/dotfiles/email" }}
+
+{{ end }}

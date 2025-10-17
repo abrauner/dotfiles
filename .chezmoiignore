@@ -1,0 +1,9 @@
+install.sh
+README.md
+.oh-my-zsh/cache/
+.oh-my-zsh/cache/completions/
+.oh-my-zsh/cache/grep-alias/
+.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/
+.oh-my-zsh/custom/themes/powerlevel10k/internal/
+.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme.zwc
+.oh-my-zsh/custom/themes/powerlevel10k/powerlevel9k.zsh-theme.zwc

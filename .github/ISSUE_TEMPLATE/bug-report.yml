@@ -1,0 +1,90 @@
+name: Bug Report
+description: Report a bug or issue with the dotfiles setup
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below to help us diagnose the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear description of what the bug is
+      placeholder: Describe what happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Describe what you expected...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Run command '...'
+        2. Edit file '...'
+        3. Apply changes with '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Information
+      description: Please provide environment details
+      placeholder: |
+        - OS: [e.g. macOS 14.0, Ubuntu 22.04]
+        - chezmoi version: [run `chezmoi --version`]
+        - 1Password CLI version: [run `op --version`]
+        - Shell: [e.g. zsh, bash]
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: chezmoi-data
+    attributes:
+      label: Chezmoi Environment Data
+      description: Output of chezmoi environment detection (redact sensitive info)
+      placeholder: |
+        Run: chezmoi data | grep -E "(isWorkLaptop|isContainerDev|hostname)"
+        Paste output here (remove any sensitive hostnames)
+      render: bash
+
+  - type: textarea
+    id: error-output
+    attributes:
+      label: Error Output
+      description: Any error messages or relevant output
+      placeholder: Paste error messages here (redact any sensitive information)
+      render: shell
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context about the problem
+      placeholder: Add any other context about the problem here
+
+  - type: checkboxes
+    id: security
+    attributes:
+      label: Security Check
+      description: Please confirm this issue doesn't expose sensitive information
+      options:
+        - label: I have redacted any sensitive information (hostnames, usernames, etc.)
+          required: true
+        - label: This issue does not contain any secrets or credentials
+          required: true

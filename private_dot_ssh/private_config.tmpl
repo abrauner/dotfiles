@@ -1,0 +1,17 @@
+{{- if not .isContainerDev }}
+Include ~/.colima/ssh_config
+
+Host *
+  ControlPath ~/.ssh/m-%r%h
+  ControlMaster auto
+  ControlPersist 900
+  AddKeysToAgent yes
+  ForwardAgent yes
+  HashKnownHosts no
+  ForwardX11 yes
+  TCPKeepAlive yes
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+Include config.d/*
+
+{{ end -}}

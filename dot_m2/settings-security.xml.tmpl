@@ -1,0 +1,5 @@
+{{- if (and .isWorkLaptop (not .isContainerDev)) -}}
+<settingsSecurity>
+    <master>{{ onepasswordRead "op://work/dotfiles/maven-settings-string" }}</master>
+</settingsSecurity>
+{{ end }}

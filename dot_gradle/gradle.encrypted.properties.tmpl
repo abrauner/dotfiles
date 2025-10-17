@@ -1,0 +1,3 @@
+{{- if .isWorkLaptop }}
+{{ onepasswordRead "op://work/dotfiles/Gradle_Password_Key" }}={{ onepasswordRead "op://work/dotfiles/Gradle_Password_Value" }}
+{{ end }}

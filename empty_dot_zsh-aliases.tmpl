@@ -1,0 +1,13 @@
+{{- if eq .chezmoi.os "darwin" }}
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+{{ end }}
+
+alias cm='chezmoi'
+alias ll='ls -la'
+{{ if and .isWorkLaptop (not .isContainerDev) }}
+alias zhttp='http --auth-type=zign --auth=zign: --stream --verify no --timeout=10000'
+{{ end }}
+
+{{ if .isPrivateLaptop -}}
+alias bz='nocorrect bazel'
+{{ end }}

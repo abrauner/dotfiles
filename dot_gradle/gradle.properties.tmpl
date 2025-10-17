@@ -1,0 +1,4 @@
+{{- if .isWorkLaptop }}
+{{ onepasswordRead "op://work/dotfiles/Gradle_Username_Key" }}={{ onepasswordRead "op://work/dotfiles/network-id" }}
+{{ onepasswordRead "op://work/dotfiles/Gradle_Password_Key" }}=
+{{ end }}

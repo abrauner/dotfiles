@@ -1,0 +1,3 @@
+{{- if (and (.isPrivateLaptop) (not .isContainerDev)) -}}
+{{ onepasswordRead "op://private/ansible-vault/password" }}
+{{- end }}

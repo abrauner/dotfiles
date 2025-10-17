@@ -1,0 +1,47 @@
+{{- if (and .isWorkLaptop (not .isContainerDev)) -}}
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                            http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <mirrors>
+        <mirror>
+            <id>maven</id>
+            <mirrorOf>*</mirrorOf>
+            <url>{{ onepasswordRead "op://work/dotfiles/maven-url" }}</url>
+        </mirror>
+    </mirrors>
+    <servers>
+        <server>
+            <id>maven</id>
+            <username>{{ onepasswordRead "op://work/dotfiles/network-id" }}</username>
+            <password>{{ onepasswordRead "op://work/dotfiles/maven-encoded-password" }}</password>
+        </server>
+        <server>
+            <id>releases</id>
+            <username>{{ onepasswordRead "op://work/dotfiles/network-id" }}</username>
+            <password>{{ onepasswordRead "op://work/dotfiles/maven-encoded-password" }}</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <username>{{ onepasswordRead "op://work/dotfiles/network-id" }}</username>
+            <password>{{ onepasswordRead "op://work/dotfiles/maven-encoded-password" }}</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>maven</id>
+            <properties>
+                <repository.url.releases>{{ onepasswordRead "op://work/dotfiles/maven-url-releases" }}</repository.url.releases>
+                <repository.url.snapshots>{{ onepasswordRead "op://work/dotfiles/maven-url-snapshots" }}</repository.url.snapshots>
+            </properties>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>maven</activeProfile>
+    </activeProfiles>
+    <pluginGroups>
+        <pluginGroup>{{ onepasswordRead "op://work/dotfiles/maven-plugin-groups" }}</pluginGroup>
+    </pluginGroups>
+</settings>
+{{ end }}

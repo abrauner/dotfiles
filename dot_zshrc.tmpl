@@ -1,0 +1,79 @@
+{{ if not .isContainerDev }}
+
+#zmodload zsh/zprof
+
+ZSH_DISABLE_COMPFIX=true
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+HYPHEN_INSENSITIVE="true"
+
+DISABLE_AUTO_UPDATE="true"
+
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+ENABLE_CORRECTION="true"
+
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+HIST_STAMPS="dd.mm.yyyy"
+
+plugins=(
+#  evalcache
+  dotenv
+  git
+  gitignore
+  z
+  gcloud
+)
+
+ZSH_DOTENV_FILE=.dotenv
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+eval "$(jenv init -)"
+eval "$(pyenv init -)"
+
+export GUILE_LOAD_PATH="/usr/local/share/guile/site/3.0"
+export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
+export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"
+
+export PATH="$HOME/.local/bin:/usr/local/sbin:${PATH}"
+export PATH="$HOME/.pyenv/shims:${PATH}"
+
+# https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
+# Add every binary that requires nvm, npm or node to run to an array of node globals
+NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+NODE_GLOBALS+=("node")
+NODE_GLOBALS+=("nvm")
+
+# Lazy-loading nvm + npm on node globals call
+load_nvm () {
+  export NVM_DIR=~/.nvm
+  [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
+}
+
+# Making node global trigger the lazy loading
+for cmd in "${NODE_GLOBALS[@]}"; do
+  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+done
+
+export EDITOR="mcedit"
+
+{{ end }}
+
+{{- if not .isWorkLaptop -}}
+export GOPRIVATE=*.retis.de,github.com/abrauner/*
+{{- end -}}
+source ~/.zsh-aliases
+
+#zprof

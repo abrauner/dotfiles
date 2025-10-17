@@ -1,0 +1,3 @@
+{{- if (and .isPrivateLaptop (not .isContainerDev)) -}}
+{{ join .chezmoi.sourceDir "private_dot_ssh/local-network.enc" | include | decrypt }}
+{{ end }}
