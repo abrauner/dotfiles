@@ -35,6 +35,7 @@ gradle
 *.ipr
 *.iws
 
+credentials.auto.tfvars
 local.properties
 sonar-project.properties
 
