@@ -4,6 +4,7 @@ brew "adr-tools"
 brew "age"
 brew "bash-completion"
 brew "chezmoi"
+brew "claude-code-router"
 brew "colima"
 brew "coreutils"
 brew "d2"
@@ -56,6 +57,7 @@ brew "poetry"
 brew "poppler"
 brew "pyenv"
 brew "reviewdog/tap/reviewdog"
+brew "uv"
 brew "vale"
 brew "wget"
 brew "zsh-completions"
@@ -69,6 +71,7 @@ cask "disk-inventory-x"
 cask "firefox"
 cask "iterm2"
 cask "logitech-presentation"
+cask "markedit"
 cask "obsidian"
 cask "pgadmin4"
 cask "podman-desktop"
@@ -100,6 +103,7 @@ tap "reviewdog/tap"
 {{ if .isPrivateLaptop }}brew "timewarrior"{{ end }}
 {{ if .isPrivateLaptop }}cask "arc"{{ end }}
 {{ if .isPrivateLaptop }}cask "calibre"{{ end }}
+{{ if .isPrivateLaptop }}cask "darktable"{{- end }}
 {{ if .isPrivateLaptop }}cask "freecad"{{ end }}
 {{ if .isPrivateLaptop }}cask "element"{{ end }}
 {{ if .isPrivateLaptop }}cask "gcloud-cli"{{ end }}
@@ -124,7 +128,6 @@ tap "reviewdog/tap"
 {{ if .isWorkLaptop }}brew "awscli"{{ end }}
 {{ if .isWorkLaptop }}cask "intellij-idea"{{ end }}
 {{ if .isWorkLaptop }}tap "base-infrastructure/homebrew-taps", "{{onepasswordRead "op://work/dotfiles/base-infra-taps-url" }}", force_auto_update: true {{ end }}
-
 
 {{ end }}
 {{ end }}
