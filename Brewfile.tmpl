@@ -3,6 +3,7 @@
 brew "adr-tools"
 brew "age"
 brew "bash-completion"
+brew "ccusage"
 brew "chezmoi"
 brew "claude-code-router"
 brew "colima"
@@ -67,7 +68,7 @@ cask "1password"
 cask "adobe-acrobat-reader"
 cask "alfred"
 cask "claude-code"
-cask "disk-inventory-x"
+#cask "disk-inventory-x"
 cask "firefox"
 cask "iterm2"
 cask "logitech-presentation"
@@ -76,7 +77,6 @@ cask "obsidian"
 cask "pgadmin4"
 cask "podman-desktop"
 cask "postman"
-cask "qmk-toolbox"
 cask "rapidapi"
 cask "rectangle"
 cask "spotify"
@@ -114,6 +114,7 @@ tap "reviewdog/tap"
 {{ if .isPrivateLaptop }}cask "notion"{{ end }}
 {{ if .isPrivateLaptop }}cask "obs"{{ end }}
 {{ if .isPrivateLaptop }}cask "openscad"{{ end }}
+{{ if .isPrivateLaptop }}cask "qmk-toolbox"{{ end }}
 {{ if .isPrivateLaptop }}cask "signal"{{ end }}
 {{ if .isPrivateLaptop }}cask "veracrypt"{{ end }}
 {{ if .isPrivateLaptop }}mas "AusweisApp2", id: 948660805{{ end }}
