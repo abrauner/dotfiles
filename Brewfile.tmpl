@@ -45,6 +45,7 @@ brew "mob"
 brew "mozjpeg"
 brew "ncdu"
 brew "nmap"
+brew "netaddr"
 brew "node"
 brew "nvm"
 brew "openslide"
@@ -97,15 +98,17 @@ tap "reviewdog/tap"
 {{ if .isPrivateLaptop }}brew "golang-migrate"{{ end }}
 {{ if .isPrivateLaptop }}brew "golangci-lint"{{ end }}
 {{ if .isPrivateLaptop }}brew "helm"{{ end }}
+{{ if .isPrivateLaptop }}brew "ollama"{{ end}}
 {{ if .isPrivateLaptop }}brew "opentofu"{{ end }}
 {{ if .isPrivateLaptop }}brew "platformio"{{ end }}
 {{ if .isPrivateLaptop }}brew "postgresql"{{ end }}
 {{ if .isPrivateLaptop }}brew "timewarrior"{{ end }}
+{{ if .isPrivateLaptop }}cask "antigravity"{{ end }}
 {{ if .isPrivateLaptop }}cask "arc"{{ end }}
 {{ if .isPrivateLaptop }}cask "calibre"{{ end }}
 {{ if .isPrivateLaptop }}cask "darktable"{{- end }}
-{{ if .isPrivateLaptop }}cask "freecad"{{ end }}
 {{ if .isPrivateLaptop }}cask "element"{{ end }}
+{{ if .isPrivateLaptop }}cask "freecad"{{ end }}
 {{ if .isPrivateLaptop }}cask "gcloud-cli"{{ end }}
 {{ if .isPrivateLaptop }}cask "grammarly-desktop"{{ end }}
 {{ if .isPrivateLaptop }}cask "inkscape"{{ end }}
@@ -115,17 +118,18 @@ tap "reviewdog/tap"
 {{ if .isPrivateLaptop }}cask "obs"{{ end }}
 {{ if .isPrivateLaptop }}cask "openscad"{{ end }}
 {{ if .isPrivateLaptop }}cask "qmk-toolbox"{{ end }}
+{{ if .isPrivateLaptop }}cask "processing"{{ end }}
 {{ if .isPrivateLaptop }}cask "signal"{{ end }}
 {{ if .isPrivateLaptop }}cask "veracrypt"{{ end }}
 {{ if .isPrivateLaptop }}mas "AusweisApp2", id: 948660805{{ end }}
 {{ if .isPrivateLaptop }}mas "Kindle", id: 302584613{{ end }}
 {{ if .isPrivateLaptop }}mas "Slack", id: 803453959{{ end }}
+{{ if .isPrivateLaptop }}mas "Tacx", id: 892366151{{ end }}
 {{ if .isPrivateLaptop }}mas "Whatsapp", id: 310633997{{ end }}
 {{ if .isPrivateLaptop }}mas "WireGuard", id: 1451685025{{ end }}
-{{ if .isPrivateLaptop }}mas "Tacx", id: 892366151{{ end }}
 
-{{ if .isWorkLaptop }}brew "aider"{{ end }}
 {{ if .isWorkLaptop }}brew "{{ onepasswordRead "op://work/dotfiles/work-aws-cli" }}" {{ end }}
+{{ if .isWorkLaptop }}brew "aider"{{ end }}
 {{ if .isWorkLaptop }}brew "awscli"{{ end }}
 {{ if .isWorkLaptop }}cask "intellij-idea"{{ end }}
 {{ if .isWorkLaptop }}tap "base-infrastructure/homebrew-taps", "{{onepasswordRead "op://work/dotfiles/base-infra-taps-url" }}", force_auto_update: true {{ end }}
