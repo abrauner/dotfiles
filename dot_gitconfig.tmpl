@@ -1,8 +1,18 @@
 {{- if not .isContainerDev }}
+{{- if .isPrivateLaptop }}
 [user]
     name = {{ onepasswordRead "op://private/dotfiles/Fullname" }}
     email = {{ onepasswordRead "op://private/dotfiles/github-public-email" }}
 {{- end }}
+
+{{- if .isWorkLaptop }}
+[user]
+    name = {{ onepasswordRead "op://work/dotfiles/Name" }}
+    email = {{ onepasswordRead "op://work/dotfiles/email" }}
+{{- end }}
+
+{{- end }}
+
 
 [color]
     ui        = true
