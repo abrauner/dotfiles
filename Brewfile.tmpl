@@ -82,6 +82,7 @@ tap "reviewdog/tap"
 {{ if .isPrivateLaptop }}brew "angular-cli"{{ end }}
 {{ if .isPrivateLaptop }}brew "ansible"{{ end }}
 {{ if .isPrivateLaptop }}brew "bazelisk"{{- end}}
+{{ if .isPrivateLaptop }}brew "composer"{{- end}}
 {{ if .isPrivateLaptop }}brew "delve"{{- end}}
 {{ if .isPrivateLaptop }}brew "esptool" {{- end}}
 {{ if .isPrivateLaptop }}brew "gatsby-cli"{{ end }}
@@ -95,8 +96,8 @@ tap "reviewdog/tap"
 {{ if .isPrivateLaptop }}brew "postgresql"{{ end }}
 {{ if .isPrivateLaptop }}brew "timewarrior"{{ end }}
 {{ if .isPrivateLaptop }}cask "antigravity"{{ end }}
-{{ if .isPrivateLaptop }}cask "arc"{{ end }}
 {{ if .isPrivateLaptop }}cask "calibre"{{ end }}
+{{ if .isPrivateLaptop }}cask "cloudflare-warp"{{ end}}
 {{ if .isPrivateLaptop }}cask "darktable"{{- end }}
 {{ if .isPrivateLaptop }}cask "element"{{ end }}
 {{ if .isPrivateLaptop }}cask "freecad"{{ end }}
