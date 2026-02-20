@@ -50,6 +50,31 @@ export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"
 export PATH="$HOME/.local/bin:/usr/local/sbin:${PATH}"
 export PATH="$HOME/.pyenv/shims:${PATH}"
 
+if [[ -d "/opt/homebrew/share/flutter/bin" ]]; then
+  export PATH="/opt/homebrew/share/flutter/bin:${PATH}"
+fi
+
+if [[ -d "$HOME/.antigravity/antigravity/bin" ]]; then
+  export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+fi
+
+if [[ -f "/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary" ]]; then
+  echo "Chrome Exec"
+  export CHROME_EXECUTABLE="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+fi
+
+if [[ -x "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary" ]]; then
+  export CHROME_EXECUTABLE="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+  echo "Chrome Canary found and set as executable."
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+
 # https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
 # Add every binary that requires nvm, npm or node to run to an array of node globals
 NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
@@ -77,9 +102,12 @@ fi
 
 {{ end }}
 
-{{- if not .isWorkLaptop -}}
+{{ if not .isWorkLaptop }}
+
 export GOPRIVATE=*.retis.de,github.com/abrauner/*
-{{- end -}}
+
+{{ end }}
+
 source ~/.zsh-aliases
 
 #zprof
