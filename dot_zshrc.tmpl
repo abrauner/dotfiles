@@ -69,6 +69,12 @@ done
 
 export EDITOR="mcedit"
 
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit
+    compinit
+fi
+
 {{ end }}
 
 {{- if not .isWorkLaptop -}}

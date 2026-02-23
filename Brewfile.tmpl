@@ -20,6 +20,7 @@ brew "github-keygen"
 brew "gitup"
 brew "gnupg"
 brew "gocloc"
+brew "googleworkspace-cli"
 brew "graphviz"
 brew "guile"
 brew "httpie"
@@ -36,8 +37,8 @@ brew "midnight-commander"
 brew "mob"
 brew "mozjpeg"
 brew "ncdu"
-brew "nmap"
 brew "netaddr"
+brew "nmap"
 brew "node"
 brew "nvm"
 brew "openslide"
@@ -61,6 +62,7 @@ cask "1password"
 cask "adobe-acrobat-reader"
 cask "alfred"
 cask "claude-code"
+cask "codex"
 cask "firefox"
 cask "iterm2"
 cask "logitech-presentation"
@@ -73,10 +75,13 @@ cask "rapidapi"
 cask "rectangle"
 cask "spotify"
 cask "sublime-text"
+cask "super-productivity"
 cask "visual-studio-code"
 mas "Amphetamine", id: 937984704
+mas "super-productivity", id: 1482572463
 tap "buo/cask-upgrade"
 tap "reviewdog/tap"
+
 
 {{ if .isPrivateLaptop }}brew "act"{{- end}}
 {{ if .isPrivateLaptop }}brew "angular-cli"{{ end }}
@@ -109,8 +114,8 @@ tap "reviewdog/tap"
 {{ if .isPrivateLaptop }}cask "notion"{{ end }}
 {{ if .isPrivateLaptop }}cask "obs"{{ end }}
 {{ if .isPrivateLaptop }}cask "openscad"{{ end }}
-{{ if .isPrivateLaptop }}cask "qmk-toolbox"{{ end }}
 {{ if .isPrivateLaptop }}cask "processing"{{ end }}
+{{ if .isPrivateLaptop }}cask "qmk-toolbox"{{ end }}
 {{ if .isPrivateLaptop }}cask "signal"{{ end }}
 {{ if .isPrivateLaptop }}cask "veracrypt"{{ end }}
 {{ if .isPrivateLaptop }}mas "AusweisApp2", id: 948660805{{ end }}
@@ -124,7 +129,8 @@ tap "reviewdog/tap"
 {{ if .isWorkLaptop }}brew "aider"{{ end }}
 {{ if .isWorkLaptop }}brew "awscli"{{ end }}
 {{ if .isWorkLaptop }}cask "intellij-idea"{{ end }}
-{{ if .isWorkLaptop }}tap "base-infrastructure/homebrew-taps", "{{onepasswordRead "op://work/dotfiles/base-infra-taps-url" }}", force_auto_update: true {{ end }}
+{{ if .isWorkLaptop }}tap "{{onepasswordRead "op://work/dotfiles/base-infra-tap-name" }}", "{{onepasswordRead "op://work/dotfiles/base-infra-taps-url" }}", force_auto_update: true {{ end }}
+{{ if .isWorkLaptop}}brew "pnpm"{{ end }}
 
 {{ end }}
 {{ end }}
