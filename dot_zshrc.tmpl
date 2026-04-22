@@ -110,4 +110,10 @@ export GOPRIVATE=*.retis.de,github.com/abrauner/*
 
 source ~/.zsh-aliases
 
+{{ if .isWorkLaptop }}
+export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=$HOME/.colima/default/docker.sock
+export TESTCONTAINERS_RYUK_DISABLED=true
+{{- end }}
+
 #zprof
