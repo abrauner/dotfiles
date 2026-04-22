@@ -53,10 +53,13 @@
 {{ if .isWorkLaptop }}brew "aider"{{ end }}
 {{ if .isWorkLaptop }}brew "awscli"{{ end }}
 {{ if .isWorkLaptop }}cask "intellij-idea"{{ end }}
+{{ if .isWorkLaptop }}mas "super-productivity", id: 1482572463{{ end }}
 {{ if .isWorkLaptop }}tap "base-infrastructure/homebrew-taps", "{{onepasswordRead "op://work/dotfiles/base-infra-taps-url" }}", force_auto_update: true {{ end }}
+{{ if .isWorkLaptop }}brew "pnpm"{{ end }}
 #{{ if .isPrivateLaptop }}cask "librecad"{{ end }}
 brew "adr-tools"
 brew "age"
+brew "anomalyco/tap/opencode"
 brew "bash-completion"
 brew "ccusage"
 brew "chezmoi"
@@ -122,7 +125,6 @@ cask "logitech-presentation"
 cask "markedit"
 cask "obsidian"
 cask "pgadmin4"
-cask "podman-desktop"
 cask "postman"
 cask "rapidapi"
 cask "rectangle"
