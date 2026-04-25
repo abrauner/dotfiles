@@ -62,6 +62,9 @@ if [[ -f "/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome
   echo "Chrome Exec"
   export CHROME_EXECUTABLE="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 fi
+if [[ -d "$HOME/.lmstudio/bin" ]]; then
+  export PATH="$PATH:/Users/ansgar.schulze.everding/.lmstudio/bin"
+fi
 
 if [[ -x "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary" ]]; then
   export CHROME_EXECUTABLE="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
@@ -103,9 +106,7 @@ fi
 {{ end }}
 
 {{ if not .isWorkLaptop }}
-
 export GOPRIVATE=*.retis.de,github.com/abrauner/*
-
 {{ end }}
 
 source ~/.zsh-aliases
