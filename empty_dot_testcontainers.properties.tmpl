@@ -4,3 +4,12 @@ docker.host=unix://{{.chezmoi.homeDir}}/.colima/default/docker.sock
 docker.context=colima
 docker.socket.override=/var/run/docker.sock
 {{ end }}
+{{ if .isWorkLaptop }}
+#docker.client.strategy=org.testcontainers.dockerclient.UnixSocketClientProviderStrategy
+testcontainers.ryuk.disable=true
+docker.client.strategy=org.testcontainers.dockerclient.EnvironmentAndSystemPropertyClientProviderStrategy
+docker.host=unix:///Users/aschulzeever/.colima/default/docker.sock
+#TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/Users/aschulzeever/.colima/default/docker.sock
+#ryuk.disabled=true
+
+{{ end }}
