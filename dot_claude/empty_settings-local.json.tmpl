@@ -1,38 +1,40 @@
-{{ if .isPrivateLaptop }}
+{{- if .isPrivateLaptop -}}
 {
   "env": {
+    "ANTHROPIC_AUTH_TOKEN": "{{ onepasswordRead "op://private/dotfiles/ANTHROPIC_AUTH_TOKEN" }}",
+    "ANTHROPIC_BASE_URL": "{{ onepasswordRead "op://private/dotfiles/ANTHROPIC_BASE_URL" }}",
+
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "google/gemma-4-e4b",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen/qwen3.6-35b-a3b",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "google/gemma-4-e4b",
+    "ANTHROPIC_MODEL": "google/gemma-4-e4b",
+
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "0",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "google/gemma-4-e4b",
+
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_EXTRA_USAGE_COMMAND": "1",
     "DISABLE_FEEDBACK_COMMAND": "1",
     "DISABLE_INSTALL_GITHUB_APP_COMMAND": "0",
     "DISABLE_LOGIN_COMMAND": "1",
     "DISABLE_LOGOUT_COMMAND": "1",
-    "DISABLE_TELEMETRY": "1",
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "0",
-    "ANTHROPIC_BASE_URL": "http://172.16.73.86:1234",
-    "ANTHROPIC_AUTH_TOKEN": "{{ onepasswordRead "op://private/lm-studio/api-key" }}",
-    "ANTHROPIC_MODEL": "google/gemma-4-e4b",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "google/gemma-4-26b-a4b",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "google/gemma-4-e4b",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "google/gemma-4-e4b"
+    "DISABLE_TELEMETRY": "1"
   },
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
     "chrome-devtools-mcp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
     "remember@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true,
-  "autoUpdates": 1
-  "minimumVersion": "2.1.116",
+  "alwaysThinkingEnabled": false,
+  "autoUpdates": 1,
   "autoUpdatesChannel": "stable",
-
-  "autoUpdates": 1
+  "awaySummaryEnabled": true,
+  "respectGitignore": true,
+  "includeGitInstructions": true,
+  "minimumVersion": "2.1.119",
+  "cleanupPeriodDays": 365
 }
 {{ end }}
