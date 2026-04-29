@@ -9,6 +9,7 @@
 [user]
     name = {{ onepasswordRead "op://work/dotfiles/Name" }}
     email = {{ onepasswordRead "op://work/dotfiles/email" }}
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHaLWaJTD0Bv0+HjQA1vd7sZGUGPGVbqmyui8X8gkKye
 {{- end }}
 
 {{- end }}
@@ -98,6 +99,15 @@
 {{ if .isWorkLaptop }}
 [url "{{ onepasswordRead "op://work/dotfiles/GHE-SSH-URL" }}"]
     insteadOf = {{onepasswordRead "op://work/dotfiles/GHE-HTTPS-URL"}}
+
+[commit]
+    gpgSign = true
+[gpg]
+    format = ssh
+
+[includeIf "hasconfig:remote.*.url:git@github.com:abrauner/**"]
+    path = ~/.gitconfig-abrauner-github
+
 {{ end }}
 
 {{ if .isPrivateLaptop }}

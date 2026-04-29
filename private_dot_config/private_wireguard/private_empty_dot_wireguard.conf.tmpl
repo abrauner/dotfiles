@@ -1,4 +1,5 @@
 {{- if not .isContainerDev -}}
+{{ if .isPrivateLaptop }}
 [Interface]
 Address = {{- onepasswordRead "op://private/dotfiles/wireguard_ip_list" }}
 PrivateKey = {{- onepasswordRead "op://private/dotfiles/wireguard_private_key" }}
@@ -11,4 +12,5 @@ PresharedKey = {{ onepasswordRead "op://private/dotfiles/wireguard_server_psk" }
 AllowedIPs = 0.0.0.0/0,::/0
 Endpoint = {{- onepasswordRead "op://private/dotfiles/wireguard_server_endpoint" }}
 PersistentKeepalive = 15
+{{ end }}
 {{- end -}}
