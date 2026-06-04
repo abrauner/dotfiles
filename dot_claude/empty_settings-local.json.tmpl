@@ -8,12 +8,13 @@
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen/qwen3.6-35b-a3b",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "google/gemma-4-e4b",
     "ANTHROPIC_MODEL": "google/gemma-4-e4b",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "google/gemma-4-e4b",
 
     "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "0",
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "google/gemma-4-e4b",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
 
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_EXTRA_USAGE_COMMAND": "1",
@@ -28,6 +29,12 @@
     "context7@claude-plugins-official": true,
     "remember@claude-plugins-official": true
   },
+  "hooks": { "PreToolUse": [{
+    "matcher": "Bash",
+    "hooks": [{ "type": "command",
+      "command": "rtk hook claude"
+    }]
+  }]},
   "alwaysThinkingEnabled": false,
   "autoUpdates": 1,
   "autoUpdatesChannel": "stable",
