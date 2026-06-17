@@ -9,7 +9,7 @@
 [user]
     name = {{ onepasswordRead "op://work/dotfiles/Name" }}
     email = {{ onepasswordRead "op://work/dotfiles/email" }}
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHaLWaJTD0Bv0+HjQA1vd7sZGUGPGVbqmyui8X8gkKye
+    signingkey = {{ range (onepassword "7dx3mgjh54s26asgxsszuzfwqe").fields -}}{{if (eq .label "public key") -}}{{     .value -}}{{   end -}}{{ end }}
 {{- end }}
 
 {{- end }}
@@ -68,10 +68,6 @@
     ls = ls-files
     rl = reflog
     up = pull --rebase --autostash
-{{- if and .isWorkLaptop (not .isContainerDev)  }}
-    privateprofile = config user.email \"{{ onepasswordRead "op://private/dotfiles/email" }}\"
-    workprofile = config user.email \"{{ onepasswordRead "op://work/dotfiles/email" }}\"
-{{- end }}
 
 [branch]
     autosetuprebase = always
