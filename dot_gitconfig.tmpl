@@ -86,6 +86,7 @@
 {{- if not .isContainerDev }}
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = ~/.ssh/.allowed_signers
 
 [credential "https://github.com"]
     helper =
