@@ -3,17 +3,16 @@
 [user]
     name = {{ onepasswordRead "op://private/dotfiles/Fullname" }}
     email = {{ onepasswordRead "op://private/dotfiles/github-public-email" }}
+    signingkey = {{ range (onepassword "dkqdyrp6mey425ov76zmifwrga").fields -}}{{if (eq .label "public key") -}}{{     .value -}}{{   end -}}{{ end }}
 {{- end }}
 
 {{- if .isWorkLaptop }}
 [user]
     name = {{ onepasswordRead "op://work/dotfiles/Name" }}
     email = {{ onepasswordRead "op://work/dotfiles/email" }}
-    signingkey = {{ range (onepassword "7dx3mgjh54s26asgxsszuzfwqe").fields -}}{{if (eq .label "public key") -}}{{     .value -}}{{   end -}}{{ end }}
+    signingkey = {{ range (onepassword "47ofokeavoo24chkxcrsgadrey").fields -}}{{if (eq .label "public key") -}}{{     .value -}}{{   end -}}{{ end }}
 {{- end }}
-
-{{- end }}
-
+{{ end }}
 
 [color]
     ui        = true
@@ -59,8 +58,6 @@
     stl = stash list
     sts = stash save
     stp = stash pop
-    svr = svn rebase
-    svc = svn dcommit
     df = diff -E -b -w -B
     lg = log -p
     lol = log --date=local --graph --decorate --pretty=format:'%C(green)%h %C(cyan) %<(15) %cn %C(reset) %C(white)%cd %C(reset)%C(auto)%d %C(yellow bold) %s%C(reset) (%cr)' --abbrev-commit
